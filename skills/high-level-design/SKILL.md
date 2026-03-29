@@ -19,19 +19,38 @@ If `$ARGUMENTS` contains a file path, read that file as the functional requireme
 If `$ARGUMENTS` is empty or not a valid file path, ask the user: "Please provide the path to the functional requirements file."
 Do not proceed until you have the functional requirements.
 
+## Interaction Rules
+
+Always use `AskUserQuestion` for user input. Follow these principles:
+
+- **One question at a time.** Never batch multiple questions into one message.
+- **Multiple choice preferred.** Provide 2-4 concrete options with descriptions. Easier to answer than open-ended.
+- **"Other" is automatic.** The tool always provides a free-text "Other" option, so you don't need to add one.
+- **Use headers.** Short labels (max 12 chars) like "Approval", "Subdomain", "Coupling".
+
 ## Process
 
-Follow these steps strictly. Each step requires explicit user approval before moving to the next. If you encounter ambiguity at any step, stop and ask the user for clarification. **Never assume.**
+Follow these steps strictly. Each step requires explicit user approval before moving to the next. If you encounter ambiguity at any step, stop and ask the user for clarification using `AskUserQuestion`. **Never assume.**
 
 ### Step 1: Understand the Requirements
 
 Read the functional requirements file. Then:
 
 1. **Restate the functional requirements** in your own words. Organize them into cohesive functional areas.
-2. **Identify what's unclear.** List every ambiguity, missing piece, or assumption you'd need to make. Ask the user about each one.
-3. **Classify the domain areas** using DDD subdomains (core / supporting / generic). This determines volatility and where to invest design effort.
+2. **Identify what's unclear.** List every ambiguity, missing piece, or assumption you'd need to make. Ask the user about each one individually using `AskUserQuestion` with concrete options where possible.
+3. **Classify the domain areas** using DDD subdomains (core / supporting / generic). This determines volatility and where to invest design effort. For each area, use `AskUserQuestion`:
 
-Present your understanding to the user for validation. Do not proceed until approved.
+| Header | Question | Options |
+|--------|----------|---------|
+| Subdomain | How would you classify {area}? | 1. **Core** - Competitive advantage, high volatility 2. **Supporting** - Necessary but not differentiating, low volatility 3. **Generic** - Solved problem, use off-the-shelf |
+
+Present your understanding to the user for validation using `AskUserQuestion`:
+
+| Header | Question | Options |
+|--------|----------|---------|
+| Approval | Does this understanding of the requirements look correct? | 1. **Approved** - Proceed to architecture design 2. **Needs changes** - I'll explain what's wrong 3. **Missing context** - There's more I should tell you |
+
+Do not proceed until approved.
 
 ### Step 2: Design the Modular Architecture
 
@@ -54,7 +73,11 @@ Present the coupling assessment table to the user:
 |---|---|---|---|---|---|
 | A -> B | Model | High (separate services) | High (core) | No — tight coupling | Reduce strength: introduce contract via API |
 
-Work through each step with the user. Each step requires user approval. Do not proceed to writing design documents until the modular architecture is fully validated by the user.
+Work through each step with the user using `AskUserQuestion`. Each step requires user approval. Do not proceed to writing design documents until the modular architecture is fully validated by the user.
+
+| Header | Question | Options |
+|--------|----------|---------|
+| Approval | Does this modular architecture look correct? | 1. **Approved** - Proceed to design documents 2. **Needs changes** - I'll explain what to adjust 3. **Rethink** - Let's reconsider the module boundaries |
 
 ### Step 3: Write Module Design Documents
 
@@ -83,7 +106,13 @@ For each module this one integrates with:
 Reasonable future changes that would require ONLY this module to change — the axes of evolution this module's boundary is designed to support.
 ```
 
-Present each module's design document to the user for review. Iterate until approved.
+Present each module's design document to the user for review using `AskUserQuestion`:
+
+| Header | Question | Options |
+|--------|----------|---------|
+| Module | Does the {module-name} design look correct? | 1. **Approved** - Move to next module 2. **Needs changes** - I'll explain 3. **Revisit architecture** - This module reveals a boundary problem |
+
+Iterate until all modules are approved.
 
 ### Step 4: Write Module Test Specifications
 
@@ -110,7 +139,13 @@ Each test section should contain specific, named test cases with:
 - **Scenario**: What is being tested
 - **Expected behavior**: What the correct outcome is
 
-Present to the user for review. Iterate until approved.
+Present to the user for review using `AskUserQuestion`:
+
+| Header | Question | Options |
+|--------|----------|---------|
+| Tests | Do the {module-name} test specs look correct? | 1. **Approved** - Move to next module 2. **Needs changes** - I'll explain 3. **Missing scenarios** - There are cases not covered |
+
+Iterate until all test specs are approved.
 
 ### Step 5: Write the Architecture Document
 
@@ -141,7 +176,13 @@ Key architectural decisions, what was considered, what was chosen, and why — g
 Anything the design intentionally leaves open, along with the conditions under which it should be revisited.
 ```
 
-Present to the user for final review. Iterate until approved.
+Present to the user for final review using `AskUserQuestion`:
+
+| Header | Question | Options |
+|--------|----------|---------|
+| Approval | Does the architecture document look correct? | 1. **Approved** - Proceed to modularity review 2. **Needs changes** - I'll explain 3. **Major concerns** - Let's revisit the design |
+
+Iterate until approved.
 
 ### Step 6: Modularity Review
 

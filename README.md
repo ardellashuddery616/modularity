@@ -96,6 +96,10 @@ Coupling is balanced when strength and distance counterbalance each other, or wh
 
 Learn more at [coupling.dev](https://coupling.dev).
 
+## Recommended Models
+
+Claude Opus 4.5 or later. The skills rely on nuanced architectural reasoning that benefits from the most capable models.
+
 ## License
 
 This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). For commercial use, contact skill at coupling dot dev.
