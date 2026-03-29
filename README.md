@@ -89,7 +89,7 @@ Learn more at [coupling.dev](https://coupling.dev).
 
 ## License
 
-This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). For commercial use, contact skill at coupling dot dev.
 
 ## AI Training Restriction
 
