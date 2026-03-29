@@ -151,15 +151,7 @@ Each test section should contain specific, named test cases with:
 - **Scenario**: What is being tested
 - **Expected behavior**: What the correct outcome is
 
-Write all test specifications without asking for individual approval.
-
-After writing all test specs, present the complete set to the user for review using `AskUserQuestion`:
-
-| Header | Question | Options |
-|--------|----------|---------|
-| Tests | All test specifications have been written. How do they look? | 1. **Approved** - Proceed to architecture document 2. **Needs changes** - I'll explain which specs need work 3. **Missing scenarios** - There are cases not covered |
-
-Iterate until approved.
+Write all test specifications without asking for approval. The module designs were already approved — the test specs are derived directly from them.
 
 ### Step 5: Write the Architecture Document
 
@@ -190,17 +182,11 @@ Key architectural decisions, what was considered, what was chosen, and why — g
 Anything the design intentionally leaves open, along with the conditions under which it should be revisited.
 ```
 
-Present to the user for final review using `AskUserQuestion`:
-
-| Header | Question | Options |
-|--------|----------|---------|
-| Approval | Does the architecture document look correct? | 1. **Approved** - Proceed to modularity review 2. **Needs changes** - I'll explain 3. **Major concerns** - Let's revisit the design |
-
-Iterate until approved.
+Write the architecture document without asking for approval. It synthesizes the already-approved module designs.
 
 ### Step 6: Modularity Review
 
-After all documents are approved, review your own design for modularity imbalances. For each integration between modules:
+After all documents are written, review your own design for modularity imbalances. For each integration between modules:
 
 1. **Map the integration**: What knowledge is shared? Is it implicit or explicit? What is the integration strength level?
 2. **Assess all three dimensions**: strength, distance, and volatility.
