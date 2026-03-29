@@ -38,13 +38,23 @@ Read the functional requirements file. Then:
 
 1. **Restate the functional requirements** in your own words. Organize them into cohesive functional areas.
 2. **Identify what's unclear.** List every ambiguity, missing piece, or assumption you'd need to make. Ask the user about each one individually using `AskUserQuestion` with concrete options where possible.
-3. **Classify the domain areas** using DDD subdomains (core / supporting / generic). This determines volatility and where to invest design effort. For each area, use `AskUserQuestion`:
+3. **Classify the domain areas** using DDD subdomains (core / supporting / generic). This determines volatility and where to invest design effort. Analyze the requirements and propose classifications yourself. Present them as a table:
+
+| Subdomain | Classification | Rationale |
+|-----------|---------------|-----------|
+| {area 1} | Core | {why} |
+| {area 2} | Supporting | {why} |
+| {area 3} | Generic | {why} |
+
+Then ask the user to validate using `AskUserQuestion`:
 
 | Header | Question | Options |
 |--------|----------|---------|
-| Subdomain | How would you classify {area}? | 1. **Core** - Competitive advantage, high volatility 2. **Supporting** - Necessary but not differentiating, low volatility 3. **Generic** - Solved problem, use off-the-shelf |
+| Subdomains | Do these subdomain classifications look right? | 1. **Approved** - All correct 2. **Some are wrong** - I'll tell you which to change 3. **Missing subdomains** - There are areas not listed |
 
-Present your understanding to the user for validation using `AskUserQuestion`:
+If the user says some are wrong, ask which ones and what the correct classification should be.
+
+Present your full understanding to the user for validation using `AskUserQuestion`:
 
 | Header | Question | Options |
 |--------|----------|---------|
@@ -106,13 +116,15 @@ For each module this one integrates with:
 Reasonable future changes that would require ONLY this module to change — the axes of evolution this module's boundary is designed to support.
 ```
 
-Present each module's design document to the user for review using `AskUserQuestion`:
+Write all module design documents without asking for individual approval. The modular architecture was already approved in Step 2 — the documents are a direct translation of that approved design.
+
+After writing all module documents, present the complete set to the user for review using `AskUserQuestion`:
 
 | Header | Question | Options |
 |--------|----------|---------|
-| Module | Does the {module-name} design look correct? | 1. **Approved** - Move to next module 2. **Needs changes** - I'll explain 3. **Revisit architecture** - This module reveals a boundary problem |
+| Modules | All module design documents have been written. How do they look? | 1. **Approved** - Proceed to test specifications 2. **Needs changes** - I'll explain which modules need work 3. **Revisit architecture** - The documents reveal a boundary problem |
 
-Iterate until all modules are approved.
+Iterate until approved.
 
 ### Step 4: Write Module Test Specifications
 
@@ -139,13 +151,15 @@ Each test section should contain specific, named test cases with:
 - **Scenario**: What is being tested
 - **Expected behavior**: What the correct outcome is
 
-Present to the user for review using `AskUserQuestion`:
+Write all test specifications without asking for individual approval.
+
+After writing all test specs, present the complete set to the user for review using `AskUserQuestion`:
 
 | Header | Question | Options |
 |--------|----------|---------|
-| Tests | Do the {module-name} test specs look correct? | 1. **Approved** - Move to next module 2. **Needs changes** - I'll explain 3. **Missing scenarios** - There are cases not covered |
+| Tests | All test specifications have been written. How do they look? | 1. **Approved** - Proceed to architecture document 2. **Needs changes** - I'll explain which specs need work 3. **Missing scenarios** - There are cases not covered |
 
-Iterate until all test specs are approved.
+Iterate until approved.
 
 ### Step 5: Write the Architecture Document
 

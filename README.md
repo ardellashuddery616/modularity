@@ -6,7 +6,7 @@ There's no shortage of AI tools that provide code-level feedback: best practices
 
 This plugin operates at the architectural level. It includes two skills:
 
-- **`/modularity:review`** analyzes an existing codebase for coupling imbalances: what knowledge is properly encapsulated, what's leaking across component boundaries, and where cascading changes are waiting to happen.
+- **`/modularity:review`** analyzes an existing codebase for coupling imbalances: what knowledge is properly encapsulated, what's leaking across component boundaries, and where cascading changes are waiting to happen. It produces actionable recommendations for improving modularity.
 - **`/modularity:high-level-design`** goes the other direction, designing modular architectures from functional requirements and producing module design docs with integration contracts, test specifications, and a full coupling assessment.
 
 Both skills are grounded in the [Balanced Coupling](https://coupling.dev) model, so every recommendation traces back to a concrete dimension (integration strength, distance, volatility), not gut feel.
