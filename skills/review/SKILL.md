@@ -40,7 +40,7 @@ Always use `AskUserQuestion` for user input. Follow these principles:
    - Your best guess at domain classification (core / supporting / generic) with reasoning and confidence level — low confidence areas are the strongest candidates for follow-up questions
    - Assumptions you're making about team structure, deployment topology, or design intent
 
-   Use `AskUserQuestion` to validate. Header: "Understanding". Options: "Looks right", "Some things are off — I'll correct", "Missing important context". If the user corrects or adds context, incorporate it before proceeding.
+   Use `AskUserQuestion` to validate. Header: "Summary". Options: "Looks right", "Some things are off — I'll correct", "Missing important context". If the user corrects or adds context, incorporate it before proceeding.
 
 4. **Discover what you still need.** You know the Balanced Coupling model. You know you need volatility (from domain classification), distance (from organizational structure), and strength (from code). Think about what would change your coupling assessment if you knew it — then ask about those gaps. One question at a time via `AskUserQuestion`. Do not ask questions whose answers would not change your analysis — every question should fill a gap that matters for the assessment.
 
